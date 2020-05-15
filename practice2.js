@@ -20,8 +20,9 @@ function createTable(){
     id=i;
     //var row = '<tr><td id="'+id+'row"'+'></td><td id="' + i + 'name"' + '>'+name+'</td><td id="'+ i + 'email"' + '>'+email+'</td>' + '<td id="'+i+'Butt_edit"><input type="button" value="修改" onclick="edit('+i+')"/></td><td><input id="'+i+'Butt_save" type="button" style="display:none" value="保存" onclick="save('+i+')"/></td><td><input id="'+i+'Butt_cancel" type="button" style="display:none" value="取消" onclick="cancel('+i+')" /></td></tr>'; 
     
-    var row = '<tr id="'+id+'row"'+'><td id="' + i + 'name"' + '>'+name+'</td><td id="'+ i + 'email"' + '>'+email+'</td>' + '<td ><input type="button" id="'+i+'Butt_edit" value="修改" onclick="edit('+i+')"/> <input id="'+i+'Butt_save" type="button" style="display:none" value="保存" onclick="save('+i+')"/><input id="'+i+'Butt_cancel" type="button" style="display:none" value="取消" onclick="cancel('+i+')" /><input id="'+i+'Butt_delete" type="button" value="刪除" onclick="del('+i+')" /></td></tr>'; 
+    //var row = '<tr id="'+id+'row"'+'><td id="' + i + 'name"' + '>'+name+'</td><td id="'+ i + 'email"' + '>'+email+'</td>' + '<td ><input type="button" id="'+i+'Butt_edit" value="修改" onclick="edit('+i+')"/> <input id="'+i+'Butt_save" type="button" style="display:none" value="保存" onclick="save('+i+')"/><input id="'+i+'Butt_cancel" type="button" style="display:none" value="取消" onclick="cancel('+i+')" /><input id="'+i+'Butt_delete" type="button" value="刪除" onclick="del('+i+')" /></td></tr>'; 
     
+    var row = '<tr id="'+id+'row"'+'><td id="' + i + 'name"' + '>'+name+'</td><td id="'+ i + 'email"' + '>'+email+'</td>' + '<td ><input type="button" id="'+i+'Butt_edit" value="修改" onclick="edit('+i+')"/> <input id="'+i+'Butt_save" type="button" style="display:none" value="保存" onclick="save('+i+')"/><input id="'+i+'Butt_cancel" type="button" style="display:none" value="取消" onclick="cancel('+i+')" /><input id="'+i+'Butt_delete" type="button" value="刪除" onclick="del('+i+')" /></td></tr>'; 
     
     
     tblBody.insertAdjacentHTML('beforeend', row);
@@ -37,9 +38,10 @@ function createTable(){
 
 function edit(no) {
 
-        document.getElementById(no+"Butt_edit").style.display="none";
-        document.getElementById(no+"Butt_save").style.display="";
-        document.getElementById(no+"Butt_cancel").style.display="";
+        document.getElementById(no+"Butt_edit").classList.add("disappear");
+        document.getElementById(no+"Butt_delete").classList.add("disappear");
+        document.getElementById(no+"Butt_save").classList.add("appear");
+        document.getElementById(no+"Butt_cancel").classList.add("appear");
        
         var name=document.getElementById(no+"name");
         var email=document.getElementById(no+"email");
@@ -63,9 +65,13 @@ function save(no)
  document.getElementById(no+"email").innerHTML=email_val;
  
 
- document.getElementById(no+"Butt_edit").style.display="";
- document.getElementById(no+"Butt_save").style.display="none";
- document.getElementById(no+"Butt_cancel").style.display="none";
+//  document.getElementById(no+"Butt_edit").style.display="";
+ var a = document.getElementById(no+"Butt_edit");
+//  console.log(a)
+ a.classList.add("appear");
+ document.getElementById(no+"Butt_delete").classList.add("appear");
+ document.getElementById(no+"Butt_save").classList.add("disappear");
+ document.getElementById(no+"Butt_cancel").classList.add("disappear");
 }
 
 function del(no)
@@ -80,9 +86,10 @@ function cancel(no){
     document.getElementById(no+"name").innerText=name_data;
     document.getElementById(no+"email").innerText=email_data;
     
-    document.getElementById(no+"Butt_edit").style.display="";
-    document.getElementById(no+"Butt_save").style.display="none";
-    document.getElementById(no+"Butt_cancel").style.display="none";
+    document.getElementById(no+"Butt_edit").classList.add("appear");
+    document.getElementById(no+"Butt_delete").classList.add("appear");
+    document.getElementById(no+"Butt_save").classList.add("disappear");
+    document.getElementById(no+"Butt_cancel").classList.add("disappear");
     
 
 }
