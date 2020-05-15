@@ -38,8 +38,8 @@ function createTable(){
 function edit(no) {
 
         document.getElementById(no+"Butt_edit").style.display="none";
-        document.getElementById(no+"Butt_save").style.display="block";
-        document.getElementById(no+"Butt_cancel").style.display="block";
+        document.getElementById(no+"Butt_save").style.display="";
+        document.getElementById(no+"Butt_cancel").style.display="";
        
         var name=document.getElementById(no+"name");
         var email=document.getElementById(no+"email");
@@ -63,7 +63,7 @@ function save(no)
  document.getElementById(no+"email").innerHTML=email_val;
  
 
- document.getElementById(no+"Butt_edit").style.display="block";
+ document.getElementById(no+"Butt_edit").style.display="";
  document.getElementById(no+"Butt_save").style.display="none";
  document.getElementById(no+"Butt_cancel").style.display="none";
 }
@@ -80,7 +80,7 @@ function cancel(no){
     document.getElementById(no+"name").innerText=name_data;
     document.getElementById(no+"email").innerText=email_data;
     
-    document.getElementById(no+"Butt_edit").style.display="block";
+    document.getElementById(no+"Butt_edit").style.display="";
     document.getElementById(no+"Butt_save").style.display="none";
     document.getElementById(no+"Butt_cancel").style.display="none";
     
